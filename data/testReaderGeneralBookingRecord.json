@@ -1,0 +1,17 @@
+{
+  "thingies": [
+    {
+      "bookedUsername": "Celine",
+      "bookedTime": 23
+    },
+    {
+      "bookedUsername": "David",
+      "bookedTime": 34
+    },
+    {
+      "bookedUsername": "Sam",
+      "bookedTime": 11
+    }
+  ],
+  "name": "Admin's booking record"
+}
