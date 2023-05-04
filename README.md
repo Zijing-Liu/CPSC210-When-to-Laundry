@@ -57,3 +57,6 @@ duplicated items, and it doesn't have the advantage to store two fields in the s
 would solve the problem. The key of the map would be the username (String), and the value of the map would be a 
 linkedList of time slots. In this way, there is no need to create a user class and add the association from Booking to 
 User, which can largely improve the coupling of the code.
+
+
+<img width="487" alt="Screen Shot 2023-05-04 at 11 24 48" src="https://user-images.githubusercontent.com/54514768/236296377-b8277ef1-ccee-4e16-97af-4aac99bceffc.png">
