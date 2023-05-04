@@ -14,16 +14,16 @@ public class Booking {
     }
 
     //bookings is the list of time slot for each 24hours, there is 36 slots for each laundry machine
-    private ArrayList<User> bookings;
+    private ArrayList<User> bookingSlots;
     LocalTime startTime;
     LocalTime endTime;
 
     // The Booking instructor is contributed by the HairSalon project provided at Edx
     // Effect: Create empty booking list
     public Booking() {
-        bookings = new ArrayList<>();
+        bookingSlots = new ArrayList<>();
         for (int i = 0; i < getNumberOfSlotsPerMachine(); i++) {
-            bookings.add(i, null);
+            bookingSlots.add(i, null);
         }
     }
 
@@ -55,14 +55,18 @@ public class Booking {
     // otherwise return false and provide the error message.
     // assign User the bookedTime
     public boolean makeANewBooking(int time, User user) {
-        if (time <= this.bookings.size()) {
-            if ((this.bookings.get(time) == null)) {
-                this.bookings.set(time, user);
+        if (time <= this.bookingSlots.size()) {
+            if ((this.bookingSlots.get(time) == null)) {
+                this.bookingSlots.set(time, user);
                 user.setBookedTime(time);
+                Event addEvent = new Event("Successfully booked " + user.geUserName() + " at " + time);
+                EventLog.getInstance().logEvent(addEvent);
                 return true;
             }
+            EventLog.getInstance().logEvent(new Event("Failed to make a new booking"));
             return false;
         }
+        EventLog.getInstance().logEvent(new Event("Failed to make a new booking"));
         return false;
     }
 
@@ -73,9 +77,9 @@ public class Booking {
     public boolean changeABooking(int newTime, User user) {
         int bookedTime = user.getBookedTime();
         if (!(bookedTime == -1)) {
-            if (!(newTime == bookedTime) && (bookings.get(newTime) == null)) {
-                bookings.set((bookedTime), null);
-                bookings.set((newTime), user);
+            if (!(newTime == bookedTime) && (bookingSlots.get(newTime) == null)) {
+                bookingSlots.set((bookedTime), null);
+                bookingSlots.set((newTime), user);
                 user.setBookedTime(newTime);
                 return true;
             }
@@ -86,21 +90,32 @@ public class Booking {
 
     //MODIFIES: this
     //EFFECTS: cancel the user's current booking
-    public boolean cancelBooking(User user) {
-        int bookedTime = user.getBookedTime();
-        if (bookedTime == -1) {
-            return false;
-        } else {
-            bookings.set(bookedTime, null);
-            user.setBookedTime(-1);
+    public boolean cancelBooking(String name) {
+        User userToCancel = getBookedUserByName(name);
+        if (userToCancel != null) {
+            int bookedTime = userToCancel.getBookedTime();
+            bookingSlots.set(bookedTime, null);
+            userToCancel.setBookedTime(-1);
+            Event cancelEvent = new Event(userToCancel.geUserName() + "'s booking at" + bookedTime + " is canceled");
+            EventLog.getInstance().logEvent(cancelEvent);
             return true;
         }
+        return false;
     }
 
 
     //EFFECTS: Return the booking list
-    public ArrayList<User> getBookings() {
-        return this.bookings;
+    public ArrayList<User> getBookingSlots() {
+        return this.bookingSlots;
     }
 
+    //EFFECT: locate the booking of the user
+    public User getBookedUserByName(String name) {
+        for (User user : bookingSlots) {
+            if (user != null && name.equals(user.geUserName())) {
+                return user;
+            }
+        }
+        return null;
+    }
 }

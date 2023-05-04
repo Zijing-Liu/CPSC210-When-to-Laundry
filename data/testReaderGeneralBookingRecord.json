@@ -1,5 +1,5 @@
 {
-  "thingies": [
+  "allBookingRecords": [
     {
       "bookedUsername": "Celine",
       "bookedTime": 23

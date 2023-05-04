@@ -1,4 +1,4 @@
 {
-    "thingies": [],
-    "name": "Admin's booking record"
+    "name": "Admin's booking record",
+    "allBookingRecords": []
 }

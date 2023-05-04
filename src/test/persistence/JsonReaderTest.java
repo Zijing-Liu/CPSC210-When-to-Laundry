@@ -1,7 +1,7 @@
 package persistence;
 
-import model.BookingRecord;
-import model.Thingy;
+import model.AllBookingRecord;
+import model.Record;
 import org.junit.jupiter.api.Test;
 
 
@@ -15,9 +15,9 @@ public class JsonReaderTest extends JsonTest {
 
     @Test
     public void testReaderNonExistentFile() {
-    JsonReader reader = new JsonReader("./data/noSuchFile.json");
+        JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
-            BookingRecord br = reader.read();
+            AllBookingRecord br = reader.read();
             fail("IOException expected");
         } catch (IOException e) {
             // pass
@@ -28,9 +28,9 @@ public class JsonReaderTest extends JsonTest {
     public void testReaderEmptyBookingRecord() {
         JsonReader reader = new JsonReader("./data/testReaderEmptyBookingRecord.json");
         try {
-            BookingRecord br = reader.read();
+            AllBookingRecord br = reader.read();
             assertEquals("Admin's booking record", br.getName());
-            assertEquals(0, br.numThingies());
+            assertEquals(0, br.numRecord());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -40,9 +40,9 @@ public class JsonReaderTest extends JsonTest {
     public void testReaderGeneralBookingRecord() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralBookingRecord.json");
         try {
-            BookingRecord br = reader.read();
+            AllBookingRecord br = reader.read();
             assertEquals("Admin's booking record", br.getName());
-            List<Thingy> thingies = br.getThingies();
+            List<Record> thingies = br.getRecord();
             assertEquals(3, thingies.size());
             checkThingy("Celine", 23, thingies.get(0));
             checkThingy("David", 34, thingies.get(1));

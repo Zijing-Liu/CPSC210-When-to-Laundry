@@ -1,8 +1,7 @@
 package persistence;
 
-import model.Booking;
-import model.BookingRecord;
-import model.Thingy;
+import model.AllBookingRecord;
+import model.Record;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -17,7 +16,7 @@ public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            BookingRecord   br = new BookingRecord("Admin's booking room");
+            AllBookingRecord br = new AllBookingRecord("Admin's booking room");
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -29,7 +28,7 @@ public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterEmptyWorkroom() {
         try {
-            BookingRecord br = new BookingRecord("Admin's booking record");
+            AllBookingRecord br = new AllBookingRecord("Admin's booking record");
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyBookingRecord.json");
             writer.open();
             writer.write(br);
@@ -38,7 +37,7 @@ public class JsonWriterTest extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterEmptyBookingRecord.json");
             br = reader.read();
             assertEquals("Admin's booking record", br.getName());
-            assertEquals(0, br.numThingies());
+            assertEquals(0, br.numRecord());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
@@ -47,10 +46,10 @@ public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterGeneralBookingRecord() {
         try {
-            BookingRecord br = new BookingRecord("Admin's booking record");
-            br.addThingy(new Thingy("Celine", 23));
-            br.addThingy(new Thingy("David", 34));
-            br.addThingy(new Thingy("Sam", 11));
+            AllBookingRecord br = new AllBookingRecord("Admin's booking record");
+            br.addRecord(new Record("Celine", 23));
+            br.addRecord(new Record("David", 34));
+            br.addRecord(new Record("Sam", 11));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralBookingRecord.json");
             writer.open();
             writer.write(br);
@@ -59,7 +58,7 @@ public class JsonWriterTest extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterGeneralBookingRecord.json");
             br = reader.read();
             assertEquals("Admin's booking record", br.getName());
-            List<Thingy> thingies = br.getThingies();
+            List<Record> thingies = br.getRecord();
             assertEquals(3, thingies.size());
             checkThingy("Celine", 23, thingies.get(0));
             checkThingy("David", 34, thingies.get(1));
