@@ -17,21 +17,8 @@ significantly help users **arrange their laundry time** and get it done more eff
 also help laundry managers to **track the usage of machines** and therefore determine the priority for machine 
 maintenance.
 
-User will be able to
-- item 1 View the availability of all laundry machines
-- item 2 Book a time slot for a laundry machine 
-- item 3 View, change, cancel current booking
-- item 4 Join the waiting list if all machines are booked
-- item 5 View notifications sent from the system
 
-### User story
-As a user, I want to be able to make multiple bookings for multiple clients   ----accomplished in GUI  
-As a user, I want to be able to view all current booking information          ----accomplished in GUI  
-As a user, I want to be able to modify the current bookings    
-As a user, I want to be able to load and save the state of the application    ----accomplished in GUI  
-
-
-### Instructions for Grader
+### Instructions for Users
 
 - You can generate the first required event by adding multiple new bookings for multiple users. To accomplish this,
 firstly click the button "Start booking" in the center of the home page, after which you will be prompted to a new
