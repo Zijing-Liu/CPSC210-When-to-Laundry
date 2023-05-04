@@ -58,8 +58,9 @@ would solve the problem. The key of the map would be the username (String), and 
 linkedList of time slots. In this way, there is no need to create a user class and add the association from Booking to 
 User, which can largely improve the coupling of the code.
 
-
-<img width="487" alt="Screen Shot 2023-05-04 at 11 26 28" src="https://user-images.githubusercontent.com/54514768/236296515-fe8ff42d-6147-4af0-bd89-2cadd9d93ac4.png">
-
+### UML Design Diagram
 
 ![UML_Design_Diagram](https://user-images.githubusercontent.com/54514768/236296761-e1335b06-6b6e-4e5f-9f5f-4de7ef768a2d.jpg)
+
+### App Interface
+<img width="487" alt="Screen Shot 2023-05-04 at 11 26 28" src="https://user-images.githubusercontent.com/54514768/236296515-fe8ff42d-6147-4af0-bd89-2cadd9d93ac4.png">
