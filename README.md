@@ -45,7 +45,7 @@ component is the icon location at left corner of the window tab.
 upload files different from the one you saved. 
 
 
-### Phase 4: Task 3
+### Next Steps
 To improve my current code, I would firstly refactor the DefaultWindow class and BookWindow class. The HomePage class
 now inherited all the object/fields from the DefaultWindow, but it doesn't need to call any methods on the inherited 
 objects. To improve the cohesion, I would just keep the imageIcon icon object and remove all the other objects and 
