@@ -59,7 +59,6 @@ linkedList of time slots. In this way, there is no need to create a user class a
 User, which can largely improve the coupling of the code.
 
 
-<img width="487" alt="Screen Shot 2023-05-04 at 11 24 48" src="https://user-images.githubusercontent.com/54514768/236296377-b8277ef1-ccee-4e16-97af-4aac99bceffc.pn<img width="487" alt="Screen Shot 2023-05-04 at 11 26 28" src="https://user-images.githubusercontent.com/54514768/236296450-addce219-8233-48ae-9fd5-fe3385cdcd50.png">
-g"> 
+<img width="487" alt="Screen Shot 2023-05-04 at 11 26 28" src="https://user-images.githubusercontent.com/54514768/236296515-fe8ff42d-6147-4af0-bd89-2cadd9d93ac4.png">
 
 
