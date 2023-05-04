@@ -9,8 +9,8 @@ needs. The public laundry rooms at UBC residences are often fully packed at peak
 laundry done on the first try, instead, students often need to check the availability multiple times until they find a 
 spot. This long-standing issue has brought several concerns to most student housing residents, such as **wasted time**, 
 **disrupted plans**, **mood swings caused by uncertainty**, **anxiety from falling behind schedule**, etc. In light of 
-this, the application "When to laundry" will be created to host laundry bookings for UBC student residents as a digital 
-solution. This application will help users determine the availability of the laundry machines and save a spot upfront. 
+this, the application "When to laundry" was created to host laundry bookings for UBC student residents as a digital 
+solution. This application will help users determine the availability of the laundry machines and save a spot ahead of time. 
 Users will also have the option to join the waiting list if all machines are occupied or booked in the next 24 hours. 
 Users will also get notifications if a spot is vacant or if their laundry is done. Overall, this application will 
 significantly help users **arrange their laundry time** and get it done more efficiently. This application will 
