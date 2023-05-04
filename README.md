@@ -1,6 +1,6 @@
 # When to laundry
 
-## A scheduling application for public laundry room 
+## A scheduling application for public laundry rooms 
 
 ### Introduction
 
@@ -18,18 +18,8 @@ also help laundry managers to **track the usage of machines** and therefore dete
 maintenance.
 
 User will be able to
-- item 1 View the availability of all laundry machines
-- item 2 Book a time slot for a laundry machine 
-- item 3 View, change, cancel current booking
-- item 4 Join the waiting list if all machines are booked
-- item 5 View notifications sent from the system
+- View the availability of all laundry machines
+- Book a time slot of a laundary machine
+- View, change, cancel current booking
+- Save the booking history to local storage
 
-### User story
-As a user, I want to be able to book a time slot for a washer and/or a dryer at least 24 upfront   
-As a user, I want to be able to view my booking information   
-As a user, I want to be able to modify my booking    
-As a user, I want to be able to be added to the waiting list when all machines are occupied   
-As a user, I want to get a notification when a machine is available if I were on the waiting list   
-As a user, I want to get a notification when my laundry is done
-As an administrator user, I want to be able to save the booking list locally
-As an administrator user, I want to be able to load the booking list from the file
