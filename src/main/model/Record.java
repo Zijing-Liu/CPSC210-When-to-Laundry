@@ -5,13 +5,13 @@ import persistence.Writable;
 
 
 //Represents a booking having a username and booked time
-public class Thingy implements Writable {
+public class Record implements Writable {
     private String bookedUsername;
     private int bookedTime;
-    private User bookedUser;
+
 
     // EFFECTS: constructs a thingy with a docUserName and category
-    public Thingy(String bookedUsername, int bookedTime) {
+    public Record(String bookedUsername, int bookedTime) {
         this.bookedUsername = bookedUsername;
         this.bookedTime = bookedTime;
 

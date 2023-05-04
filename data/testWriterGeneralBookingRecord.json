@@ -1,5 +1,6 @@
 {
-    "thingies": [
+    "name": "Admin's booking record",
+    "allBookingRecords": [
         {
             "bookedUsername": "Celine",
             "bookedTime": 23
@@ -12,6 +13,5 @@
             "bookedUsername": "Sam",
             "bookedTime": 11
         }
-    ],
-    "name": "Admin's booking record"
+    ]
 }

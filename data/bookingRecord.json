@@ -1,0 +1,7 @@
+{
+    "name": "admin's booking record",
+    "allBookingRecords": [{
+        "bookedUsername": "ee",
+        "bookedTime": 23
+    }]
+}

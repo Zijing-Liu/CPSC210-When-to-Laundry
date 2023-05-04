@@ -23,10 +23,10 @@ public class BookingTest {
 
     @Test
     public void testMakeANewBooking() {
-        testBooking.getBookings().get(1);
-        assertEquals(testBooking.getBookings().get(1), null);
+        testBooking.getBookingSlots().get(1);
+        assertEquals(testBooking.getBookingSlots().get(1), null);
         assertTrue(testBooking.makeANewBooking(1, celine));
-        assertEquals(celine, testBooking.getBookings().get(1));
+        assertEquals(celine, testBooking.getBookingSlots().get(1));
         assertFalse(testBooking.makeANewBooking(40, celine));
         assertFalse(testBooking.makeANewBooking(1, david));
     }
@@ -35,8 +35,8 @@ public class BookingTest {
     void testChangeABooking() {
         testBooking.makeANewBooking(1, celine);
         assertTrue(testBooking.changeABooking(2, celine));
-        assertEquals(null, testBooking.getBookings().get(1));
-        assertEquals(celine, testBooking.getBookings().get(2));
+        assertEquals(null, testBooking.getBookingSlots().get(1));
+        assertEquals(celine, testBooking.getBookingSlots().get(2));
         assertFalse(testBooking.changeABooking(0, david));
         testBooking.makeANewBooking(3, david);
         assertFalse(testBooking.changeABooking(3, david));
@@ -45,10 +45,10 @@ public class BookingTest {
 
     @Test
     void testCancelABooking() {
-        assertFalse(testBooking.cancelBooking(celine));
+        assertFalse(testBooking.cancelBooking("Celine"));
         testBooking.makeANewBooking(1, david);
-        assertTrue(testBooking.cancelBooking(david));
-        assertEquals(null, testBooking.getBookings().get(1));
+        assertTrue(testBooking.cancelBooking("David"));
+        assertEquals(null, testBooking.getBookingSlots().get(1));
     }
 
     @Test
@@ -72,4 +72,14 @@ public class BookingTest {
         assertEquals("Celine", celine.geUserName());
         assertEquals("David", david.geUserName());
     }
+
+    @Test
+    void testGetBookedUserByName() {
+        testBooking.makeANewBooking(1, celine);
+        testBooking.makeANewBooking(2, david);
+        assertEquals(celine, testBooking.getBookedUserByName("Celine"));
+        assertEquals(david, testBooking.getBookedUserByName("David"));
+
+    }
+
 }

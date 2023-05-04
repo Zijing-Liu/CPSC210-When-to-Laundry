@@ -1,6 +1,6 @@
 package persistence;
 
-import model.BookingRecord;
+import model.AllBookingRecord;
 import org.json.JSONObject;
 
 
@@ -26,7 +26,7 @@ public class JsonWriter {
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of booking record to file
-    public void write(BookingRecord wr) {
+    public void write(AllBookingRecord wr) {
         JSONObject json = wr.toJson();
         saveToFile(json.toString(TAB));
     }

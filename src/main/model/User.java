@@ -11,7 +11,6 @@ public class User {
         this.bookedTime = -1;
     }
 
-
     // setters
     public void setBookedTime(int time) {
         bookedTime = time;

@@ -1,7 +1,7 @@
 package persistence;
 
-import model.Thingy;
-import model.BookingRecord;
+import model.AllBookingRecord;
+import model.Record;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,7 +21,7 @@ public class JsonReader {
 
     // EFFECTS: reads booking record from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public BookingRecord read() throws IOException {
+    public AllBookingRecord read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseBookingRecord(jsonObject);
@@ -39,31 +39,31 @@ public class JsonReader {
     }
 
     // EFFECTS: parses booking record from JSON object and returns it
-    private BookingRecord parseBookingRecord(JSONObject jsonObject) {
+    private AllBookingRecord parseBookingRecord(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
-        BookingRecord wr = new BookingRecord(name);
-        addThingies(wr, jsonObject);
-        return wr;
+        AllBookingRecord br = new AllBookingRecord(name);
+        addRecords(br, jsonObject);
+        return br;
     }
 
     // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to booking record
-    private void addThingies(BookingRecord wr, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("thingies");
+    // EFFECTS: parses records from JSON object and adds them to booking record
+    private void addRecords(AllBookingRecord wr, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("allBookingRecords");
         for (Object json : jsonArray) {
-            JSONObject nextThingy = (JSONObject) json;
-            addThingy(wr, nextThingy);
+            JSONObject nextRecord = (JSONObject) json;
+            addRecord(wr, nextRecord);
         }
     }
 
     // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to booking record
-    private void addThingy(BookingRecord wr, JSONObject jsonObject) {
+    // EFFECTS: parses record from JSON object and adds it to booking record
+    private void addRecord(AllBookingRecord wr, JSONObject jsonObject) {
         //String bookedUsername = jsonObject.keys().next();
         //int bookedTime = Integer.parseInt(jsonObject.getString("bookedUsername"));
         String bookedUsername = jsonObject.getString("bookedUsername");
         int bookedTime = jsonObject.getInt("bookedTime");
-        Thingy thingy = new Thingy(bookedUsername, bookedTime);
-        wr.addThingy(thingy);
+        Record record = new Record(bookedUsername, bookedTime);
+        wr.addRecord(record);
     }
 }
